@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Padding="40"
+             x:Class="PrismApp.Views.ViewA"
+             >
+
+  <StackLayout>
+    <Entry Text="{Binding Text}" Placeholder="Product" />
+    <Button Text="Add" Command="{Binding AddCommand}" />
+    
+    <ListView ItemsSource="{Binding Items}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <SwitchCell Text="{Binding Name}" On="{Binding IsActive}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+
+</ContentPage>
